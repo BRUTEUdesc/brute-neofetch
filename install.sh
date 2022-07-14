@@ -1,5 +1,4 @@
 #!/usr/bin/bash
-clear
 
 yellow_color="\e[0;33m"
 blue_color="\e[0;34m"
@@ -14,6 +13,13 @@ white_flag="\e[0m[*]"
 set -- $(locale LC_MESSAGES)
 yesexpr="$1"; noexpr="$2"; yesword="$3"; noword="$4"
 curren_path=$(pwd) 
+
+if [[ ! $(command -v neofetch) =~ 'neofetch' ]]
+then
+    echo -e "$red_flag Neofetch não encontrado...\n"
+    sleep 1
+    exit
+fi
 
 echo -e "$green_flag Iniciando instalação do neofetch do Brute!\n"
 sleep 1
@@ -66,9 +72,39 @@ else
         echo "macos install without nerd fonts"
     else
         echo "$green_flag Não consegui detectar seu sistema operacional :("
+        exit
     fi
 fi
 
-#cp -rT /tmp/brute-neofetch/home/ $HOME/
-#cd $path
-#rm -rf /tmp/brute-neofetch
+clear
+
+#instalar neofetch aqui
+echo -e "$green_flag Instalado!\n"
+neofetch
+sleep 1
+
+echo -e "$white_flag Deseja configurar para executar o neofetch sempre ao abrir seu terminal?"
+echo -e "Isso será feito editando seus arquivos de login dos shells (.bashrc,
+.zshrc)"
+
+while true; do
+    read -p "[*] (${yesword}/${noword})? " yn
+    if [[ "$yn" =~ $yesexpr ]]; then run=true; break; fi
+    if [[ "$yn" =~ $noexpr ]]; then run=false; break; fi
+    echo "Answer ${yesword}/${noword}."
+done
+
+if [[ $run == true ]]
+then
+    if [[ $OSTYPE =~ 'linux' ]] 
+    then
+        echo -e "linux run on init\n"
+    elif [[ $OSTYPE =~ 'darwin' ]] 
+    then
+        echo -e "macos run on init\n"
+    fi
+fi
+
+
+echo -e "$green_flag Pronto!"
+sleep 1
