@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 yellow_color="\e[0;33m"
 blue_color="\e[0;34m"
