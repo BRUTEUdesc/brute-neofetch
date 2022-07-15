@@ -7,5 +7,5 @@ Só copiar os arquivos da pasta `home` pra sua home, e configurar as fontes do t
 
 Comando para instalar automaticamente (ainda não funciona):
 ```
-sh -c "$(curl -fsSL https://raw.github.com/BRUTEUdesc/brute-neofetch/main/install.sh)"
+bash -c "$(curl -fsSL https://raw.github.com/BRUTEUdesc/brute-neofetch/main/install.sh)"
 ```
