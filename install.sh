@@ -16,12 +16,12 @@ curren_path=$(pwd)
 
 if [[ ! $(command -v neofetch) =~ 'neofetch' ]]
 then
-    echo -e "$red_flag Neofetch não encontrado...\n"
+    echo -e "\n$red_flag Neofetch não encontrado...\n"
     sleep 1
     exit
 fi
 
-echo -e "$green_flag Iniciando instalação do neofetch do Brute!\n"
+echo -e "\n$green_flag Iniciando instalação do neofetch do Brute!\n"
 sleep 1
 
 if [[ -d "$HOME/.config/neofetch" ]]
@@ -83,9 +83,8 @@ echo -e "$green_flag Instalado!\n"
 neofetch
 sleep 1
 
-echo -e "$white_flag Deseja configurar para executar o neofetch sempre ao abrir seu terminal?"
-echo -e "Isso será feito editando seus arquivos de login dos shells (.bashrc,
-.zshrc)"
+echo -e "$white_flag Deseja configurar para executar o neofetch sempre que abrir seu terminal?"
+echo -e "Isso será feito editando seus arquivos de login dos shells (.bashrc e .zshrc)"
 
 while true; do
     read -p "[*] (${yesword}/${noword})? " yn
