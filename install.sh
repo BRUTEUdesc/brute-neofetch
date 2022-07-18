@@ -52,24 +52,32 @@ while true; do
     echo "Answer ${yesword}/${noword}."
 done
 
+cd /tmp
+git clone https://github.com/BRUTEUdesc/brute-neofetch
+
 if [[ $nf == true ]]
 then
     if [[ $OSTYPE =~ 'linux' ]] 
     then
         echo "linux install with nerd fonts"
+        cp -rT brute-neofetch/homes/home_nerd_fonts $HOME
     elif [[ $OSTYPE =~ 'darwin' ]] 
     then
         echo "macos install with nerd fonts"
+        #PENDING
     else
         echo "$green_flag Não consegui detectar seu sistema operacional :("
+        exit
     fi
 else
     if [[ $OSTYPE =~ 'linux' ]] 
     then
         echo "linux install without nerd fonts"
+        cp -rT brute-neofetch/homes/home_no_nerd_fonts $HOME
     elif [[ $OSTYPE =~ 'darwin' ]] 
     then
         echo "macos install without nerd fonts"
+        #PENDING
     else
         echo "$green_flag Não consegui detectar seu sistema operacional :("
         exit
@@ -78,7 +86,6 @@ fi
 
 clear
 
-#instalar neofetch aqui
 echo -e "$green_flag Instalado!\n"
 neofetch
 sleep 1
@@ -98,9 +105,13 @@ then
     if [[ $OSTYPE =~ 'linux' ]] 
     then
         echo -e "linux run on init\n"
+        touch $HOME/.config/neofetch/is_brute_config
+        cat brute-neofetch/files/run_neofetch_on_login.sh >> $HOME/.zshrc
+        cat brute-neofetch/files/run_neofetch_on_login.sh >> $HOME/.bashrc
     elif [[ $OSTYPE =~ 'darwin' ]] 
     then
         echo -e "macos run on init\n"
+        #PENDING
     fi
 fi
 
