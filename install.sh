@@ -81,7 +81,6 @@ else
     then
         # macos install without nerd fonts
         cp -rT brute-neofetch/homes/home_no_nerd_fonts_mac $HOME
-        #PENDING
     else
         echo "$error Não consegui detectar seu sistema operacional :("
         exit
