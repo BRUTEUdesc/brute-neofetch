@@ -1,4 +1,6 @@
 # Neofetch do BRUTE
+![image](https://user-images.githubusercontent.com/70975757/179618592-4972fba2-71f4-46e1-a94e-c4639a30e450.png)
+![image](https://user-images.githubusercontent.com/70975757/179618680-e1006bb5-9404-4606-a614-90358ecbce80.png)
 
 ## Instalação
 ### Instalação automática
