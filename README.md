@@ -11,7 +11,7 @@
 2. Observações
 3. Desinstalação
 
-## Instalação
+## 1. Instalação
 ### Instalação automática
 Comando para instalar automaticamente (Linux e MacOS):
 ```
@@ -50,13 +50,13 @@ Copiar os arquivos da configuração sem os símbolos especiais (MacOS):
 ```
 cp -rT homes/home_no_nerd_fonts_mac $HOME
 ```
-## Observações
+## 2. Observações
 
 ### Não consigo ver os símbolos especiais, e agora?
 Caso não consiga ver (mas queira), basta baixar e instalar uma Nerd Font (https://www.nerdfonts.com/font-downloads), e configurar para ela ser a fonte do seu terminal.
 
 ### Quero rodar o neofetch sempre que abrir meu terminal.
-A opção dada na instalação automática é através da edição dos arquivos de login dos shells (bash ou zsh), e pode ser feita com algum dos comandos abaixo:
+A opção dada na instalação automática é através da edição dos arquivos de login dos shells (`$HOME/.bashrc` ou `$HOME/.zshrc`), e pode ser feita com algum dos comandos abaixo:
 
 - Bash
 ```
@@ -82,3 +82,21 @@ EOF
 ```
 
 PORÉM, minha preferência pessoal é por editar diretamente no terminal que você usa (gnome-terminal, alacritty, tilix, etc) para rodar o comando `zsh -c "neofetch; zsh"` ou `bash -c "neofetch; bash"` na inicialização do terminal, desta forma o neofetch não será executado quando você abrir o terminal do VScode, ou simplesmente entrar em um novo shell.
+
+## 3. Desinstalação
+### Desinstalação automática
+Para remover, rode o comando abaixo:
+```
+bash -c "$(curl -fsSL https://raw.github.com/BRUTEUdesc/brute-neofetch/main/uninstall.sh)"
+```
+### Desinstalação manual
+Basta remover os arquivos em `$HOME/.config/neofetch`:
+```
+rm -rf $HOME/.config/neofetch
+```
+E caso haja um backup em `$HOME/.config/neofetch.bkp`, restaure-o:
+```
+mv $HOME/.config/neofetch.bkp $HOME/.config/neofetch
+```
+
+Pode ainda haver trechos do código de inicialização automática do neofetch em seus arquivos de login dos shells (`$HOME/.bashrc` ou `$HOME/.zshrc`). Eles não vão incomodar, mas pode remover se quiser.
