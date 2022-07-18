@@ -1,28 +1,36 @@
-#!/bin/bash
+#!/usr/bin/zsh
+
+# NÃO TESTADO
+
+yellow_color="\e[0;33m"
+blue_color="\e[0;34m"
+pink_color="\e[0;35m"
+green_color="\e[0;32m"
+red_color="\e[0;31m"
+white_color="\e[0m"
+green_flag="\e[0m[\e[0;32m+\e[0m]"
+red_flag="\e[0m[\e[0;31m-\e[0m]"
+white_flag="\e[0m[*]"
 
 set -- $(locale LC_MESSAGES)
 yesexpr="$1"; noexpr="$2"; yesword="$3"; noword="$4"
 curren_path=$(pwd) 
 
-ok="[OK]"
-ast="[*]"
-error="[X]"
-
 if [[ ! $(command -v neofetch) =~ 'neofetch' ]]
 then
-    echo -e "\n$error Neofetch não encontrado...\n"
+    echo -e "\n$red_flag Neofetch não encontrado...\n"
     sleep 1
     exit
 fi
 
-echo -e "\n$ast Iniciando instalação do neofetch do Brute!\n"
+echo -e "\n$green_flag Iniciando instalação do neofetch do Brute!\n"
 sleep 1
 
 if [[ -d "$HOME/.config/neofetch" ]]
 then
     if [[ -d "$HOME/.config/neofetch.bkp" ]]
     then
-        echo -e "$ast Já existe um backup do neofetch.\n"
+        echo -e "$white_flag Já existe um backup do neofetch.\n"
         if [[ -f "$HOME/.config/neofetch/is_brute_config" ]]
         then
             rm $HOME/.config/neofetch/is_brute_config
@@ -30,18 +38,18 @@ then
         sleep 1
     else
         mv $HOME/.config/neofetch $HOME/.config/neofetch.bkp
-        echo -e "$ok Backup da configuração atual do neofetch feito.\n"
+        echo -e "$green_flag Backup da configuração atual do neofetch feito.\n"
         sleep 1
     fi
 else
     mkdir $HOME/.config/neofetch
 fi
 
-echo -e "$ast Você consegue ver esses símbolos?"
-echo -e "- Pinguim do Linux: "
-echo -e "- Logo do Ubuntu: "
-echo -e "- Logo do Fedora: "
-echo -e "- Logo do Mac: "
+echo -e "$white_flag Você consegue ver esses símbolos?"
+echo -e "- Pinguim do Linux: $yellow_color$white_color"
+echo -e "- Logo do Ubuntu: $red_color$white_color"
+echo -e "- Logo do Fedora: $blue_color$white_color"
+echo -e "- Logo do Mac: $pink_color$white_color"
 
 while true; do
     read -p "[*] (${yesword}/${noword})? " yn
@@ -61,42 +69,40 @@ if [[ $nf == true ]]
 then
     if [[ $OSTYPE =~ 'linux' ]] 
     then
-        # linux install with nerd fonts
+        echo "linux install with nerd fonts"
         cp -rT brute-neofetch/homes/home_nerd_fonts $HOME
     elif [[ $OSTYPE =~ 'darwin' ]] 
     then
-        # macos install with nerd fonts
-        cp -rT brute-neofetch/homes/home_nerd_fonts_mac $HOME
+        echo "macos install with nerd fonts"
         #PENDING
     else
-        echo "$error Não consegui detectar seu sistema operacional :("
+        echo "$green_flag Não consegui detectar seu sistema operacional :("
         exit
     fi
 else
     if [[ $OSTYPE =~ 'linux' ]] 
     then
-        # linux install without nerd fonts
+        echo "linux install without nerd fonts"
         cp -rT brute-neofetch/homes/home_no_nerd_fonts $HOME
     elif [[ $OSTYPE =~ 'darwin' ]] 
     then
-        # macos install without nerd fonts
-        cp -rT brute-neofetch/homes/home_no_nerd_fonts_mac $HOME
+        echo "macos install without nerd fonts"
         #PENDING
     else
-        echo "$error Não consegui detectar seu sistema operacional :("
+        echo "$green_flag Não consegui detectar seu sistema operacional :("
         exit
     fi
 fi
 
 clear
 
-echo -e " Instalado!\n"
+echo -e "$green_flag Instalado!\n"
 neofetch
 sleep 1
 
-echo -e "$ast Deseja iniciar o neofetch sempre que abrir seu shell (bash
+echo -e "$white_flag Deseja iniciar o neofetch sempre que abrir seu shell (bash
 ou zsh)?"
-echo -e "$ast Isso será feito editando seus arquivos de login dos shells (.bashrc e .zshrc)"
+echo -e "Isso será feito editando seus arquivos de login dos shells (.bashrc e .zshrc)"
 
 while true; do
     read -p "[*] (${yesword}/${noword})? " yn
@@ -109,7 +115,7 @@ if [[ $run == true ]]
 then
     if [[ $OSTYPE =~ 'linux' ]] 
     then
-        # linux run on init
+        echo -e "linux run on init\n"
         touch $HOME/.config/neofetch/is_brute_config
         if [[ -f $HOME/.bashrc ]]
         then
@@ -121,19 +127,11 @@ then
         fi
     elif [[ $OSTYPE =~ 'darwin' ]] 
     then
-        # macos run on init
-        touch $HOME/.config/neofetch/is_brute_config
-        if [[ -f $HOME/.bashrc ]]
-        then
-            cat brute-neofetch/files/run_neofetch_on_login.sh >> $HOME/.bashrc
-        fi
-        if [[ -f $HOME/.zshrc ]]
-        then
-            cat brute-neofetch/files/run_neofetch_on_login.sh >> $HOME/.zshrc
-        fi
+        echo -e "macos run on init\n"
+        #PENDING
     fi
 fi
 
 
-echo -e "\n$ok Pronto!\n"
+echo -e "$green_flag Pronto!"
 sleep 1
