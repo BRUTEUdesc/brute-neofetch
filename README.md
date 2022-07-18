@@ -17,4 +17,6 @@ Clone o repositório:
 ```
 cd /tmp && git clone https://github.com/BRUTEUdesc/brute-neofetch && cd brute-neofetch
 ```
---Falta terminar--
+Agora teste se você consegue ver os símbolos especiais com o comando:
+```
+```
