@@ -21,7 +21,7 @@ then
     rm -rf $HOME/.config/neofetch
 fi
 
-if [[ -d "$HOME/.config/neofetch.bkp'" ]]
+if [[ -d "$HOME/.config/neofetch.bkp" ]]
 then
     mv $HOME/.config/neofetch.bkp $HOME/.config/neofetch
 fi
