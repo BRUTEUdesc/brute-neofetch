@@ -66,8 +66,7 @@ then
     elif [[ $OSTYPE =~ 'darwin' ]] 
     then
         # macos install with nerd fonts
-        cp -rT brute-neofetch/homes/home_nerd_fonts_mac $HOME
-        #PENDING
+        cp -R brute-neofetch/homes/home_nerd_fonts_mac/ $HOME
     else
         echo "$error Não consegui detectar seu sistema operacional :("
         exit
@@ -80,7 +79,7 @@ else
     elif [[ $OSTYPE =~ 'darwin' ]] 
     then
         # macos install without nerd fonts
-        cp -rT brute-neofetch/homes/home_no_nerd_fonts_mac $HOME
+        cp -R brute-neofetch/homes/home_no_nerd_fonts_mac/ $HOME
     else
         echo "$error Não consegui detectar seu sistema operacional :("
         exit
