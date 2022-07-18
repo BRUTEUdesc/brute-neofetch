@@ -94,8 +94,7 @@ neofetch
 sleep 1
 
 echo -e "$ast Deseja iniciar o neofetch sempre que abrir seu shell (bash
-ou zsh)?"
-echo -e "$ast Isso será feito editando seus arquivos de login dos shells (.bashrc e .zshrc)"
+ou zsh)? Isso será feito editando seus arquivos de login dos shells (.bashrc e .zshrc)"
 
 while true; do
     read -p "[*] (${yesword}/${noword})? " yn
