@@ -7,9 +7,13 @@
 
 ![image](https://user-images.githubusercontent.com/70975757/179618680-e1006bb5-9404-4606-a614-90358ecbce80.png)
 
+1. Instalação
+2. Observações
+3. Desinstalação
+
 ## Instalação
 ### Instalação automática
-Comando para instalar automaticamente (ainda não funciona):
+Comando para instalar automaticamente (Linux e MacOS):
 ```
 bash -c "$(curl -fsSL https://raw.github.com/BRUTEUdesc/brute-neofetch/main/install.sh)"
 ```
