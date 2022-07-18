@@ -29,6 +29,10 @@ then
     if [[ -d "$HOME/.config/neofetch.bkp" ]]
     then
         echo -e "$white_flag Já existe um backup do neofetch.\n"
+        if [[ -f "$HOME/.config/neofetch/is_brute_config" ]]
+        then
+            rm $HOME/.config/neofetch/is_brute_config
+        fi
         sleep 1
     else
         mv $HOME/.config/neofetch $HOME/.config/neofetch.bkp
@@ -90,7 +94,8 @@ echo -e "$green_flag Instalado!\n"
 neofetch
 sleep 1
 
-echo -e "$white_flag Deseja configurar para executar o neofetch sempre que abrir seu terminal?"
+echo -e "$white_flag Deseja iniciar o neofetch sempre que abrir seu shell (bash
+ou zsh)?"
 echo -e "Isso será feito editando seus arquivos de login dos shells (.bashrc e .zshrc)"
 
 while true; do
@@ -106,8 +111,14 @@ then
     then
         echo -e "linux run on init\n"
         touch $HOME/.config/neofetch/is_brute_config
-        cat brute-neofetch/files/run_neofetch_on_login.sh >> $HOME/.zshrc
-        cat brute-neofetch/files/run_neofetch_on_login.sh >> $HOME/.bashrc
+        if [[ -f $HOME/.bashrc ]]
+        then
+            cat brute-neofetch/files/run_neofetch_on_login.sh >> $HOME/.bashrc
+        fi
+        if [[ -f $HOME/.zshrc ]]
+        then
+            cat brute-neofetch/files/run_neofetch_on_login.sh >> $HOME/.zshrc
+        fi
     elif [[ $OSTYPE =~ 'darwin' ]] 
     then
         echo -e "macos run on init\n"
