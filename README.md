@@ -1,12 +1,13 @@
 # Neofetch do BRUTE
 
-## Instalação automática
+## Instalação
+### Instalação automática
 Comando para instalar automaticamente (ainda não funciona):
 ```
 bash -c "$(curl -fsSL https://raw.github.com/BRUTEUdesc/brute-neofetch/main/install.sh)"
 ```
 
-## Instalação manual
+### Instalação manual
 Faça backup da sua configuração atual do neofetch com o comando:
 ```
 mv $HOME/.config/neofetch $HOME/.config/neofetch.bkp && mkdir $HOME/.config/neofetch
@@ -19,22 +20,54 @@ Agora teste se você consegue ver os símbolos especiais com o comando:
 ```
 bash -c "$(curl -fsSL https://raw.github.com/BRUTEUdesc/brute-neofetch/main/files/test-nerd-fonts.sh)"
 ```
-Caso não consiga ver (mas queira), basta baixar e instalar uma Nerd Font (https://www.nerdfonts.com/font-downloads), e configurar para ela ser a fonte do seu terminal.
 
+Dependendo da sua situação, use algum dos comandos abaixo:
 
-Copiar os arquivos **com** as nerd fonts (Linux):
+Copiar os arquivos da configuração com os símbolos especiais (Linux):
 ```
 cp -rT homes/home_nerd_fonts $HOME
 ```
-Copiar os arquivos **com** as nerd fonts (MacOS):
+Copiar os arquivos da configuração com os símbolos especiais (MacOS):
 ```
 cp -rT homes/home_nerd_fonts_mac $HOME
 ```
-Copiar os arquivos **sem** as nerd fonts (Linux):
+Copiar os arquivos da configuração sem os símbolos especiais (Linux):
 ```
 cp -rT homes/home_no_nerd_fonts $HOME
 ```
-Copiar os arquivos **sem** as nerd fonts (MacOS):
+Copiar os arquivos da configuração sem os símbolos especiais (MacOS):
 ```
 cp -rT homes/home_no_nerd_fonts_mac $HOME
 ```
+## Observações
+
+### Não consigo ver os símbolos especiais, e agora?
+Caso não consiga ver (mas queira), basta baixar e instalar uma Nerd Font (https://www.nerdfonts.com/font-downloads), e configurar para ela ser a fonte do seu terminal.
+
+### Quero rodar o neofetch sempre que abrir meu terminal.
+A opção dada na instalação automática é através da edição dos arquivos de login dos shells (bash ou zsh), e pode ser feita com algum dos comandos abaixo:
+
+- Bash
+```
+touch $HOME/.config/neofetch/is_brute_config
+cat << EOF >> $HOME/.bashrc
+
+if [[ -f $HOME/.config/neofetch/is_brute_config ]]
+then
+    neofetch
+fi
+EOF
+```
+- ZSH
+```
+touch $HOME/.config/neofetch/is_brute_config
+cat << EOF >> $HOME/.zshrc
+
+if [[ -f $HOME/.config/neofetch/is_brute_config ]]
+then
+    neofetch
+fi
+EOF
+```
+
+PORÉM, minha preferência pessoal é por editar diretamente no terminal que você usa (gnome-terminal, alacritty, tilix, etc) para rodar o comando `zsh -c "neofetch; zsh"` ou `bash -c "neofetch; bash"` na inicialização do terminal, desta forma o neofetch não será executado quando você abrir o terminal do VScode, ou simplesmente entrar em um novo shell.
