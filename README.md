@@ -40,7 +40,7 @@ cp -rT homes/home_nerd_fonts $HOME
 ```
 Copiar os arquivos da configuração com os símbolos especiais (MacOS):
 ```
-cp -rT homes/home_nerd_fonts_mac $HOME
+cp -R homes/home_nerd_fonts_mac $HOME
 ```
 Copiar os arquivos da configuração sem os símbolos especiais (Linux):
 ```
@@ -48,7 +48,7 @@ cp -rT homes/home_no_nerd_fonts $HOME
 ```
 Copiar os arquivos da configuração sem os símbolos especiais (MacOS):
 ```
-cp -rT homes/home_no_nerd_fonts_mac $HOME
+cp -R homes/home_no_nerd_fonts_mac $HOME
 ```
 ## 2. Observações
 
