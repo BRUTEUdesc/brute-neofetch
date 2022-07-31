@@ -14,6 +14,13 @@ then
     exit
 fi
 
+if [[ ! $(command -v git) =~ 'git' ]]
+then
+    echo -e "\n$error Git não encontrado...\n"
+    sleep 1
+    exit
+fi
+
 echo -e "\n$ast Iniciando instalação do neofetch do Brute!\n"
 sleep 1
 
