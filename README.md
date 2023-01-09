@@ -7,11 +7,11 @@
 
 ![image](https://user-images.githubusercontent.com/70975757/179618680-e1006bb5-9404-4606-a614-90358ecbce80.png)
 
-1. [Instalação](#1. Instalação)
-2. [Observações](#2. Observações)
-3. [Desinstalação](#3. Desinstalação)
+1. [Instalação](#Instalação)
+2. [Observações](#Observações)
+3. [Desinstalação](#Desinstalação)
 
-## 1. Instalação
+## Instalação
 ### Instalação automática
 Comando para instalar automaticamente (Linux e MacOS):
 ```
@@ -50,7 +50,7 @@ Copiar os arquivos da configuração sem os símbolos especiais (MacOS):
 ```
 cp -R homes/home_no_nerd_fonts_mac $HOME
 ```
-## 2. Observações
+## Observações
 
 ### Não consigo ver os símbolos especiais, e agora?
 Caso não consiga ver (mas queira), basta baixar e instalar uma Nerd Font (https://www.nerdfonts.com/font-downloads), e configurar para ela ser a fonte do seu terminal.
@@ -83,7 +83,7 @@ EOF
 
 PORÉM, minha preferência pessoal é por editar diretamente no terminal que você usa (gnome-terminal, alacritty, tilix, etc) para rodar o comando `zsh -c "neofetch; zsh"` ou `bash -c "neofetch; bash"` na inicialização do terminal, desta forma o neofetch não será executado quando você abrir o terminal do VScode, ou simplesmente entrar em um novo shell.
 
-## 3. Desinstalação
+## Desinstalação
 ### Desinstalação automática
 Para remover, rode o comando abaixo:
 ```
