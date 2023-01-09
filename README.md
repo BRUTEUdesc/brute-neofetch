@@ -7,9 +7,9 @@
 
 ![image](https://user-images.githubusercontent.com/70975757/179618680-e1006bb5-9404-4606-a614-90358ecbce80.png)
 
-1. [Instalação](#Instalação)
-2. [Observações](#Observações)
-3. [Desinstalação](#Desinstalação)
+1. [Instalação](#1. Instalação)
+2. [Observações](#2. Observações)
+3. [Desinstalação](#3. Desinstalação)
 
 ## 1. Instalação
 ### Instalação automática
