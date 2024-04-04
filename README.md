@@ -1,11 +1,11 @@
 # Neofetch do BRUTE
 - Versão com os símbolos especiais
-
-![image](https://user-images.githubusercontent.com/70975757/179618592-4972fba2-71f4-46e1-a94e-c4639a30e450.png)
+  
+<img width="953" alt="image" src="https://github.com/BRUTEUdesc/brute-neofetch/assets/70975757/ea002a8d-1976-4751-8043-a318b2e02f1c">
 
 - Versão sem os símbolos especiais
 
-![image](https://user-images.githubusercontent.com/70975757/179618680-e1006bb5-9404-4606-a614-90358ecbce80.png)
+<img width="869" alt="image" src="https://github.com/BRUTEUdesc/brute-neofetch/assets/70975757/a02c55bf-b826-4de5-9eb3-5fafcca55614">
 
 1. [Instalação](#Instalação)
 2. [Observações](#Observações)
