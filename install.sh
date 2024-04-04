@@ -3,9 +3,20 @@
 set -- $(locale LC_MESSAGES)
 yesexpr="$1"; noexpr="$2"; yesword="$3"; noword="$4"
 
-ok="[OK]"
-ast="[*]"
-error="[X]"
+WHITE='\033[0;37m'
+GREEN='\033[0;32m'
+LIGHT_GRAY='\033[0;37m'
+YELLOW='\033[0;33m'
+RED='\033[0;31m'
+ORANGE='\033[0;38;5;208m'
+BLUE='\033[0;34m'
+PINK='\033[0;95m'
+NC='\033[0m'
+
+ok="${WHITE}[${GREEN}OK${WHITE}]${NC}"
+ast="${WHITE}[${LIGHT_GRAY}*${WHITE}]${NC}"
+warn="${WHITE}[${YELLOW}*${WHITE}]${NC}"
+error="${WHITE}[${RED}X${WHITE}]${NC}"
 
 if [[ ! $(command -v neofetch) =~ 'neofetch' ]]
 then
@@ -28,7 +39,7 @@ if [[ -d "$HOME/.config/neofetch" ]]
 then
     if [[ -d "$HOME/.config/neofetch.bkp" ]]
     then
-        echo -e "$ast Já existe um backup do neofetch.\n"
+        echo -e "$warn Já existe um backup do neofetch.\n"
         if [[ -f "$HOME/.config/neofetch/is_brute_config" ]]
         then
             rm $HOME/.config/neofetch/is_brute_config
@@ -44,10 +55,10 @@ else
 fi
 
 echo -e "$ast Você consegue ver esses símbolos?"
-echo -e "- Pinguim do Linux: "
-echo -e "- Logo do Ubuntu: "
-echo -e "- Logo do Fedora: "
-echo -e "- Logo do Mac: "
+echo -e "- Pinguim do Linux:  "
+echo -e "- Logo do Ubuntu: ${ORANGE}${NC} "
+echo -e "- Logo do Fedora: ${BLUE}${NC} "
+echo -e "- Logo do Mac: ${PINK}${NC} "
 
 while true; do
     read -p "[*] (${yesword}/${noword})? " yn
@@ -74,7 +85,7 @@ then
         # macos install with nerd fonts
         cp -R brute-neofetch/homes/home_nerd_fonts_mac/ $HOME
     else
-        echo "$error Não consegui detectar seu sistema operacional :("
+        echo "$error Não consegui identificar seu sistema operacional :("
         exit
     fi
 else
@@ -87,7 +98,7 @@ else
         # macos install without nerd fonts
         cp -R brute-neofetch/homes/home_no_nerd_fonts_mac/ $HOME
     else
-        echo "$error Não consegui detectar seu sistema operacional :("
+        echo "$error Não consegui identificar seu sistema operacional :("
         exit
     fi
 fi
@@ -134,6 +145,15 @@ then
         then
             cat brute-neofetch/files/run_neofetch_on_login.sh >> $HOME/.zshrc
         fi
+    fi
+else
+    echo -e "$ast Se desejar rodar o neofetch toda vez que abrir o shell, adicione o seguinte comando ao seu arquivo de login do shell: "
+    # check if bat exists else uses cat
+    if [[ $(command -v bat) =~ 'bat' ]]
+    then
+        bat -pp -n brute-neofetch/files/run_neofetch_on_login.sh
+    else
+        cat -n brute-neofetch/files/run_neofetch_on_login.sh
     fi
 fi
 
