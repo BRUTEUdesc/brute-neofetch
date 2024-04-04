@@ -105,6 +105,8 @@ fi
 
 clear
 
+touch $HOME/.config/neofetch/is_brute_config
+
 echo -e " Instalado!\n"
 neofetch
 sleep 1
@@ -124,7 +126,6 @@ then
     if [[ $OSTYPE =~ 'linux' ]] 
     then
         # linux run on init
-        touch $HOME/.config/neofetch/is_brute_config
         if [[ -f $HOME/.bashrc ]]
         then
             cat brute-neofetch/files/run_neofetch_on_login.sh >> $HOME/.bashrc
@@ -136,7 +137,6 @@ then
     elif [[ $OSTYPE =~ 'darwin' ]] 
     then
         # macos run on init
-        touch $HOME/.config/neofetch/is_brute_config
         if [[ -f $HOME/.bashrc ]]
         then
             cat brute-neofetch/files/run_neofetch_on_login.sh >> $HOME/.bashrc
